@@ -1,0 +1,24 @@
+<code style="font-size: 10.2375px; font-family: Consolas, Menlo, Monaco, "Courier New", monospace; color: rgba(51, 51, 51, 0.85); background-color: rgb(246, 247, 248); border-radius: 2px; display: block; line-height: 1.5; position: relative; top: 0px; outline: 0px !important;"> 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    role: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: app
+  template:
+    metadata:
+      labels:
+        role: app
+    spec:
+      containers:
+      - name: app
+        image: "{{ image_id }}"
+        resources:
+          requests:
+            cpu: 10m
+</code>
